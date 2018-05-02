@@ -67,7 +67,6 @@ function newGame() {
   }
 }
 
-Math.floor(Math.random() * 3);
 
 function getComputerPick() {
   var possiblePicks = ['rock', 'paper', 'scissors'];
@@ -103,8 +102,16 @@ function checkRoundWinner(playerPick, computerPick) {
   setGamePoints();
 
   if (player.score == 10) {
+    playerPickElem.innerText = '',
+    computerPickElem.innerText = '',
+    playerResultElem.innerText = '',
+    computerResultElem.innerText = '';
     playerWinGame();
   } else if (computer.score == 10) {
+    playerPickElem.innerText = '',
+    computerPickElem.innerText = '',
+    playerResultElem.innerText = '',
+    computerResultElem.innerText = '';
     computerWinGame();
   }
 }
@@ -127,16 +134,18 @@ var gameWinnerName = document.getElementById('js-winnerName');
 
 function playerWinGame() {
   var gameState = 'ended';
-  gameWinnerName.innerText = 'The winner is ' + player.name + '!';
-  gameWinner.style.display = 'block';
-  newGameElem.style.display = 'block';
+  
+  gameWinnerName.innerText = 'The winner is ' + player.name + '!',
+  gameWinner.style.display = 'block',
+  newGameElem.style.display = 'block',
   pickElem.style.display = 'none';
 }
 
 function computerWinGame() {
   var gameState = 'ended';
-  gameWinnerName.innerText = 'The winner is Computer!';
-  gameWinner.style.display = 'block';
-  newGameElem.style.display = 'block';
+
+  gameWinnerName.innerText = 'The winner is Computer!',
+  gameWinner.style.display = 'block',
+  newGameElem.style.display = 'block',
   pickElem.style.display = 'none';
 }
